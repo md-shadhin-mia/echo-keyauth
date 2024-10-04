@@ -12,6 +12,7 @@
     "@popperjs/core": "^2.11.8",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react-portal": "^4.0.7",
+    "axios": "^1.7.7",
     "babel-plugin-macros": "^3.1.0",
     "bcrypt": "^5.1.1",
     "classnames": "^2.5.1",

@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
-import Menu from "../components/ui/Menu/index.tsx";
+import React, { ReactNode } from "react";
+import Menu from "../components/ui/Menu";
 import { HiOutlineHome, HiOutlineCog, HiOutlineUser, HiOutlineMail, HiOutlineKey, HiOutlineGlobeAlt, HiOutlineChartBar, HiOutlineUsers, HiOutlineUserCircle, HiOutlineCreditCard, HiOutlineShieldCheck } from "react-icons/hi";
+import SelectRealm from "./SelectRealm";
+import Avatar from "@/components/ui/Avatar";
 
 const menuTree = {
     "id": "root",
@@ -106,7 +108,7 @@ function Item({ item }: any) {
                 }
                 key={item.id}
             >
-                {item.children.map((child) => (
+                {item.children.map((child: any) => (
                     <Item item={child} key={child.id} />
                 ))}
             </Menu.MenuCollapse>
@@ -122,17 +124,28 @@ function Item({ item }: any) {
 
 export const SideNav: React.FC = () => {
     return (
-        <aside className="max-h-screen min-h-screen  bg-white dark:bg-gray-800 max-w-xs">
-            <Menu variant="transparent">
-                {menuTree.children.map((group) => (
-                    <Menu.MenuGroup key={group.id} label={group.label} className="overflow-hidden text-gray-900 dark:text-gray-300">
-                        {group.children.map((item) => (
-                            <Item item={item} key={item.id} />
-                        ))}
-                    </Menu.MenuGroup>
-                ))}
-            </Menu>
-
+        <aside className="max-h-screen min-h-screen absolute top-0 left-0 bg-white dark:bg-gray-800  max-w-xs w-80 p-2 z-30 flex flex-col">
+            <div className="relative">
+                <SelectRealm />
+            </div>
+            <div className="flex-1 mt-4">
+                <Menu variant="transparent">
+                    {menuTree.children.map((group) => (
+                        <Menu.MenuGroup key={group.id} label={group.label} className="overflow-hidden text-gray-900 dark:text-gray-300">
+                            {group.children.map((item) => (
+                                <Item item={item} key={item.id} />
+                            ))}
+                        </Menu.MenuGroup>
+                    ))}
+                </Menu>
+            </div>
+            <div className="flex items-center mt-4 border-t border-gray-600 py-1">
+                <Avatar className="mr-4" icon={<HiOutlineUser />} />
+                <div className="flex flex-col">
+                    <span className="font-semibold text-gray-900 dark:text-gray-300">John Doe</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400">johndoe@example.com</span>
+                </div>
+            </div>
         </aside>
     );
 };

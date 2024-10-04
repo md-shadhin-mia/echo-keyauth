@@ -122,7 +122,7 @@ const MenuContent = ({ icon, label }: { icon: ReactNode, label: string }) => {
 function Item({ item }: any) {
     if (item.children) {
         return (
-            <Dropdown.Menu placement="middle-end-bottom" key={item.id} title={item.label} eventKey={item.id}>
+            <Dropdown.Menu placement="bottom-start" key={item.id} title={item.label} eventKey={item.id}>
                 {item.children.map((child) => (
                     <Item item={child} key={child.id} />
                 ))}
@@ -139,7 +139,7 @@ function Item({ item }: any) {
 
 export const SideNav: React.FC = () => {
     return (
-        <Dropdown placement="bottom-start" title="Click Me!" >
+        <Dropdown placement="bottom-end" title="Click Me!" >
             {menuTree.children.map((group) => (
                 <Item item={group} key={group.id} />
             ))}

@@ -1,21 +1,10 @@
 // import localFont from "npm:next@14.2.13";
 import type { Metadata } from "next";
 import React from "react";
-import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider, useTheme } from "@/utils/ThemeProvider";
 import Body from "./body";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Echo KEYAUTH",
