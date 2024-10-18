@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </h1>
                 </div>
             </header>
-            <main className="px-4 py-6 flex">
+            <main className="flex justify-center pt-8">
                 {children}
             </main>
         </div>

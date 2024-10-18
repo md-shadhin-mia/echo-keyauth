@@ -9,7 +9,7 @@ import FormItem from "@/components/ui/Form/FormItem"
 
 function Login() {
     return (
-        <div className="h-full flex justify-center items-center bg-white dark:bg-slate-900">
+        <div className="flex justify-center items-center bg-white dark:bg-slate-900 p-4 rounded shadow md:w-2/4 w-full">
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validationSchema={Yup.object({
@@ -18,7 +18,7 @@ function Login() {
                 })}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2))
+
                         setSubmitting(false)
                     }, 400)
                 }}
